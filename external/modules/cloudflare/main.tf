@@ -1,5 +1,6 @@
 data "cloudflare_zone" "zone" {
-  name = "khuedoan.com"
+  zone_id = "6b8505382fdd38770f65ed664a565242"
+ # name = "ology.vn"
 }
 
 data "cloudflare_api_token_permission_groups" "all" {}

@@ -2,15 +2,16 @@
   kubernetes.core.helm:
     name: cilium
     chart_ref: cilium
-    chart_repo_url: "{{ cilium_repo_url }}"
-    chart_version: "{{ cilium_version }}"
-    release_namespace: "{{ cilium_namespace }}"
-    values: "{{ cilium_values }}"
+    chart_repo_url: '{{ cilium_repo_url }}'
+    chart_version: '{{ cilium_version }}'
+    release_namespace: '{{ cilium_namespace }}'
+    # validate_certs: false
+    values: '{{ cilium_values }}'
 
 - name: Wait for Cilium CRDs
   kubernetes.core.k8s_info:
     kind: CustomResourceDefinition
-    name: "{{ item }}"
+    name: '{{ item }}'
   loop:
     - ciliuml2announcementpolicies.cilium.io
     - ciliumloadbalancerippools.cilium.io
@@ -21,7 +22,7 @@
 
 - name: Apply Cilium resources
   kubernetes.core.k8s:
-    template: "{{ item }}"
+    template: '{{ item }}'
   loop:
     - ciliuml2announcementpolicy.yaml
     - ciliumloadbalancerippool.yaml

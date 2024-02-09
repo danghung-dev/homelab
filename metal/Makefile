@@ -3,18 +3,18 @@
 env ?= prod
 export KUBECONFIG = $(shell pwd)/kubeconfig.yaml
 
-default: boot cluster
+default: cluster
 
-~/.ssh/id_ed25519:
+~/.ssh/id_rsa:
 	ssh-keygen -t ed25519 -P '' -f "$@"
 
-boot: ~/.ssh/id_ed25519
+boot: ~/.ssh/id_rsa
 	ansible-playbook \
 		--inventory inventories/${env}.yml \
 		boot.yml
 
 cluster:
-	ansible-playbook \
+	ansible-playbook -vvv\
 		--inventory inventories/${env}.yml \
 		cluster.yml
 

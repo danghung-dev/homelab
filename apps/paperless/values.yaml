@@ -9,9 +9,9 @@ app-template:
           env:
             PAPERLESS_PORT: 8000
             PAPERLESS_ADMIN_USER: admin
-            PAPERLESS_URL: https://paperless.khuedoan.com
+            PAPERLESS_URL: https://paperless.ology.vn
           envFrom:
-            - secret: "{{ .Release.Name }}-secret"
+            - secret: '{{ .Release.Name }}-secret'
         redis:
           image:
             repository: docker.io/library/redis
@@ -29,7 +29,7 @@ app-template:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
-        - host: &host paperless.khuedoan.com
+        - host: &host paperless.ology.vn
           paths:
             - path: /
               pathType: Prefix
