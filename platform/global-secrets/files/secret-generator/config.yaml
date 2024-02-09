@@ -4,6 +4,24 @@
     - key: password
       length: 32
       special: true
+- name: gitea.woodpecker
+  data:
+    - key: client_id
+      length: 10
+      special: false
+    - key: client_secret
+      length: 32
+      special: false   
+
+- name: kanidm.dex
+  data:
+    - key: client_id
+      length: 10
+      special: false
+    - key: client_secret
+      length: 32
+      special: false  
+      
 
 # Dex
 - name: dex.grafana
