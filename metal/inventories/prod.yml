@@ -14,12 +14,20 @@ metal:
             disk: sda,
             network_interface: ens192,
           }
-    workers:
-      hosts:
-        metal3:
+        metal1:
           {
             ansible_host: 10.86.101.222,
             mac: '00:50:56:82:ee:c2',
             disk: sda,
             network_interface: ens192,
           }
+        metal2:
+          {
+            ansible_host: 10.86.101.223,
+            mac: '00:50:56:82:8b:93',
+            disk: sda,
+            network_interface: ens192,
+          }
+    workers:
+      hosts: {}
+        
