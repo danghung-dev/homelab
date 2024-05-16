@@ -1,5 +1,6 @@
 ingress-nginx:
   controller:
+    replicaCount: 3
     admissionWebhooks:
       timeoutSeconds: 30
     metrics:

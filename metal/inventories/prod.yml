@@ -3,6 +3,7 @@ all:
     control_plane_endpoint: 10.86.101.237
     load_balancer_ip_pool:
       - 10.86.101.238/31
+      - 10.86.101.239/31
 metal:
   children:
     masters:
